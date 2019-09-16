@@ -15,6 +15,8 @@ export class ChampionComponent implements OnInit {
   Armor: number;
   MagicResist: number;
   Skills: Skill[];
+  Mana: number;
+  Life: number;
 
 
   constructor() { }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Damage } from '../DataStructures/Damage';
 import { Defense } from '../DataStructures/Defense';
+import { Skill } from '../DataStructures/Skill';
+import { ChampionComponent } from '../Champion/champion.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,11 @@ export class DamageCalculatorService {
 
   constructor() { }
 
-  CalculateDamage(damage: number, defense: number) {
+  CalculateSkillDamage(champion: ChampionComponent, skill: Skill)  {
+    return skill.CalculateDamage(champion);
+  }
+
+  CalculateDamage(damage: number, defense: number): number {
     let result = 0;
     if (defense > 0) {
       result = damage * (100 / (100 + defense));
@@ -19,8 +25,4 @@ export class DamageCalculatorService {
     return result;
   }
 
-  CalculateResistance(Damage: Damage , Champion: Champion, champion: Champion) {
-    let result = 0;
-    result = resistance ;
-  }
 }
